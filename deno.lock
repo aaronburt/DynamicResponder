@@ -2,8 +2,7 @@
   "version": "4",
   "specifiers": {
     "jsr:@std/assert@1": "1.0.6",
-    "jsr:@std/internal@^1.0.4": "1.0.4",
-    "jsr:@std/yaml@^1.0.5": "1.0.5"
+    "jsr:@std/internal@^1.0.4": "1.0.4"
   },
   "jsr": {
     "@std/assert@1.0.6": {
@@ -14,15 +13,11 @@
     },
     "@std/internal@1.0.4": {
       "integrity": "62e8e4911527e5e4f307741a795c0b0a9e6958d0b3790716ae71ce085f755422"
-    },
-    "@std/yaml@1.0.5": {
-      "integrity": "71ba3d334305ee2149391931508b2c293a8490f94a337eef3a09cade1a2a2742"
     }
   },
   "workspace": {
     "dependencies": [
-      "jsr:@std/assert@1",
-      "jsr:@std/yaml@^1.0.5"
+      "jsr:@std/assert@1"
     ]
   }
 }
