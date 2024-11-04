@@ -27,7 +27,7 @@ You can define routes for various HTTP methods (GET, POST, PUT) using the follow
 
 ```typescript
 responder.get('/user/:name', (req) => {
-    return new Response(`Hello, ${req.params[0]}!`); // Accessing the parameter
+    return new Response(`Hello, ${req.params.name}!`); // Accessing the parameter
 });
 ```
 
@@ -52,14 +52,14 @@ import DynamicResponder from './path/to/DynamicResponder.ts';
 const responder = new DynamicResponder();
 
 responder.get('/user/:name', (req) => {
-    return new Response(`Hello, ${req.params[0]}!`);
+    return new Response(`Hello, ${req.params.name}!`);
 });
 
 responder.start(80);
 ```
 
 
-License
+### License
 
 
 
