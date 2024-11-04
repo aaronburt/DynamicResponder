@@ -1,8 +1,7 @@
 import { assertEquals } from "@std/assert";
-import DynamicResponder from "./responder.ts";
+import DynamicResponder from "./main.ts";
 
 const testPort = 8080;
-
 
 /* SERVER */ 
 const app = new DynamicResponder();
