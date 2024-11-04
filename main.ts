@@ -7,7 +7,5 @@ app.get("/user/:id", (req: Request) => {
   return new Response(req.params.id);
 });
 
-app.getRoutes()
-
 app.start(80);
 
