@@ -12,7 +12,7 @@ name: Deno
 ## Designed to reduce redundant doubled tests being run when doing a pr
 on:
   push:
-    branches: ["main"] # Run tests when code is merged into `main`
+    branches: ["main", "dev"] # Run tests when merged into main and pushed to dev
   pull_request:
     branches: ["dev"] # Run tests when a pull request targets `dev`
 
