@@ -50,7 +50,7 @@ export default class DynamicResponder {
     }
 
     public getRoutes(){
-        console.log(this.router)
+        return this.router;
     }
 
     start(port: number, hostname: string = "0.0.0.0"){
