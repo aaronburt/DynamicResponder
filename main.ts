@@ -1,10 +1,13 @@
-import DynamicResponder from "./dynamicResponder.ts";
+import DynamicResponder from "./responder.ts";
 
 const app = new DynamicResponder();
 
-app.get("/", (_req: Request) => {
-  return new Response('Testing')
+app.get("/user/:id", (req: Request) => {
+  console.log(req.params);
+  return new Response(req.params.id);
 });
+
+app.getRoutes()
 
 app.start(80);
 
