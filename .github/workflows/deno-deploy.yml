@@ -7,6 +7,7 @@ on:
 
 permissions:
     contents: read
+    id-token: write
 
 jobs:
     test:
@@ -32,3 +33,5 @@ jobs:
 
             - name: Run tests
               run: deno test -A
+
+            - run: npx jsr publish
