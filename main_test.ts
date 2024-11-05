@@ -1,20 +1,21 @@
 import { assertEquals } from "@std/assert";
 import DynamicResponder from "./main.ts";
+import type { CustomRequest } from "./responder.ts";
 
 const testPort = 8080;
 
 /* SERVER */
 const app = new DynamicResponder();
 
-app.get("/user/:id", (req: Request) => {
+app.get("/user/:id", (req: CustomRequest) => {
 	return new Response(req.params.id);
 });
 
-app.get("/:id", (req: Request) => {
+app.get("/:id", (req: CustomRequest) => {
 	return new Response(req.params.id);
 });
 
-app.get("/", (_req: Request) => {
+app.get("/", (_req: CustomRequest) => {
 	return new Response("This is a standard response");
 });
 

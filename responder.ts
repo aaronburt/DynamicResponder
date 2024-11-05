@@ -1,10 +1,8 @@
-declare global {
-	interface Request {
-		params: Record<string, string>;
-	}
+export interface CustomRequest extends Request {
+	params: Record<string, string>;
 }
 
-export type ResponseFunction = ((req: Request) => Response) | ((req: Request) => Promise<Response>);
+export type ResponseFunction = ((req: CustomRequest) => Response) | ((req: CustomRequest) => Promise<Response>);
 
 export interface RouteEntry {
 	func: ResponseFunction;
@@ -56,13 +54,16 @@ export default class DynamicResponder {
 		Deno.serve({ port: port, hostname: hostname }, (req: Request) => {
 			const { pathname } = new URL(req.url);
 
+			//https://jsr.io/docs/about-slow-types#global-augmentation
+			const CustomRequest: CustomRequest = req as CustomRequest;
+
 			for (const [route, content] of this.router) {
 				if (content.method === req.method) {
 					const match: RegExpMatchArray | null = pathname.match(route);
 					if (match !== null) {
 						const mappedParams: Record<string, string> = this.dynParamAssigner(match, content);
-						req.params = mappedParams;
-						return content.func(req);
+						CustomRequest.params = mappedParams;
+						return content.func(CustomRequest);
 					}
 				}
 			}
