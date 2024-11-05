@@ -1,4 +1,4 @@
-name: Deno Dev 
+name: Deno Dev
 
 ## Designed toe rduce redundant doubled tests being run when doing a pr
 on:

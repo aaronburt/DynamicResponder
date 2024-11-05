@@ -1,10 +1,9 @@
-name: Deno Production 
+name: Deno Production
 
 ## Designed toe rduce redundant doubled tests being run when doing a pr
 on:
     push:
         branches: ["main"] # Run tests when merged into main and pushed to dev
-
 
 permissions:
     contents: read
